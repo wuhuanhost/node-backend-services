@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="username">
+	<input type="text" id="password">
+	<button onclick="login()">登录</button>
+	<button onclick="get()">获取用户信息</button>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/js-cookie/latest/js.cookie.js"></script>
+	<script>
+		//登录请求
+		function login(){
+
+			$.ajax({
+				    headers: {
+              			'x-csrf-token':Cookies.get('csrftoken')||"KVjfK1l9Gw3PpDHk_Q6IvZjm"
+          			},
+		             type: "post",
+		             url: "http://127.0.0.1:7001/login",
+		             data: {account:$("#username").val(), pwd:$("#password").val()},
+		             dataType: "json",
+					 contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+		             success: function(data){
+		       				console.log(data.token)
+		       				localStorage.setItem("token",data.token);
+		             }
+		         });
+
+		}
+
+		function get(){
+					$.ajax({
+					    headers: {
+	              			'access-token':localStorage.getItem("token")
+	          			},
+			             type: "get",
+			             url: "http://127.0.0.1:7001/getUser",
+			             data: {account:$("#username").val(), pwd:$("#password").val()},
+			             dataType: "json",
+			             success: function(data){
+			       				console.log(data)
+			       				
+			             }
+		         });
+
+		}
+	</script>
+</body>
+</html>
