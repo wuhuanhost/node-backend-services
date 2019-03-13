@@ -27,7 +27,7 @@ class UserController extends Controller {
         var _this = this;
         this.ctx.app.jwt.verify(token, this.ctx.app.config.jwt.secret, function(err, result) {
             if (!err) {
-                _this.ctx.body = { success: true, msg: "token 正确", data: {} };
+                _this.ctx.body = { success: true, msg: "token 正确", data: { msg: "hello world!!!" } };
             } else {
                 _this.ctx.body = { success: false, msg: "token error" };
             }
