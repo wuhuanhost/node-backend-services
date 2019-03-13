@@ -1,35 +1,38 @@
 {
-  "name": "backend-services",
-  "version": "1.0.0",
-  "description": "基于egg2.x的node后端服务",
-  "main": "index.js",
-  "scripts": {
-    "test": "egg-bin test --full-trace",
-    "dev": "egg-bin dev",
-    "cov": "egg-bin cov"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wuhuanhost/node-backend-services.git"
-  },
-  "keywords": [
-    "egg.js",
-    "node",
-    "services",
-    "backend"
-  ],
-  "author": "dreamer",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wuhuanhost/node-backend-services/issues"
-  },
-  "homepage": "https://github.com/wuhuanhost/node-backend-services#readme",
-  "devDependencies": {
-    "egg-bin": "^4.7.1",
-    "egg-mock": "^3.17.2"
-  },
-  "dependencies": {
-    "egg": "^2.9.1",
-    "egg-jwt": "^3.0.0"
-  }
+    "name": "backend-services",
+    "version": "1.0.0",
+    "description": "基于egg2.x的node后端服务",
+    "main": "index.js",
+    "scripts": {
+        "test": "egg-bin test --full-trace",
+        "dev": "egg-bin dev",
+        "cov": "egg-bin cov"
+    },
+    "egg": {
+        "declarations": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wuhuanhost/node-backend-services.git"
+    },
+    "keywords": [
+        "egg.js",
+        "node",
+        "services",
+        "backend"
+    ],
+    "author": "dreamer",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wuhuanhost/node-backend-services/issues"
+    },
+    "homepage": "https://github.com/wuhuanhost/node-backend-services#readme",
+    "devDependencies": {
+        "egg-bin": "^4.7.1",
+        "egg-mock": "^3.22.1"
+    },
+    "dependencies": {
+        "egg": "^2.20.1",
+        "egg-jwt": "^3.0.0"
+    }
 }
