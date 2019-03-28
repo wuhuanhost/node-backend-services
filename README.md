@@ -23,3 +23,23 @@
 ### 关于日志路径
 
 > [生产环境日志路径](https://blog.csdn.net/csm0912/article/details/80894177)
+
+### 数据库同步
+
+#### 1、创建表
+
+`npx sequelize migration:generate --name=init-[表名]`
+
+#### 2、编写数据库 migration 文件，通过 1 会生成主要的结构
+
+### 3、升级数据库
+
+`npx sequelize db:migrate`
+
+### 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+
+`npx sequelize db:migrate:undo`
+
+### 可以通过 `db:migrate:undo:all` 回退到初始状态
+
+`npx sequelize db:migrate:undo:all`
