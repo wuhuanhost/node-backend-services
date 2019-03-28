@@ -8,4 +8,6 @@ module.exports = app => {
     router.post("/login", controller.user.login);
     //获取用户数据的请求
     router.get("/getUser", controller.user.getUser);
+
+    router.get("/show", controller.user.show);
 };

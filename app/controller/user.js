@@ -1,6 +1,11 @@
 // app/controller/user.js
 const Controller = require("egg").Controller;
 
+function toInt(str) {
+    if (typeof str === "number") return str;
+    if (!str) return str;
+    return parseInt(str, 10) || 0;
+}
 class UserController extends Controller {
     async login() {
         //app.js启动时获取的天气数据
@@ -32,6 +37,12 @@ class UserController extends Controller {
                 _this.ctx.body = { success: false, msg: "token error" };
             }
         });
+    }
+
+    async show() {
+        console.error(this.ctx.query.id);
+        const ctx = this.ctx;
+        ctx.body = await ctx.model.User.findById(parseInt(this.ctx.query.id));
     }
 }
 
