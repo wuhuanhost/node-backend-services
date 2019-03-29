@@ -32,14 +32,26 @@
 
 #### 2、编写数据库 migration 文件，通过 1 会生成主要的结构
 
-### 3、升级数据库
+#### 3、升级数据库
 
 `npx sequelize db:migrate`
 
-### 如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+#### 4、如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
 
 `npx sequelize db:migrate:undo`
 
-### 可以通过 `db:migrate:undo:all` 回退到初始状态
+#### 5、可以通过 `db:migrate:undo:all` 回退到初始状态
 
 `npx sequelize db:migrate:undo:all`
+
+### 表数据初始化
+
+> 如果一些表中有一些初始化的数据，可以使用 seeders 来实现
+
+#### 1、创建 seeders 文件
+
+`npx sequelize seed:generate --name [表名]`
+
+#### 2、同步数据到数据库
+
+`npx sequelize db:seed:all`
