@@ -12,4 +12,6 @@ module.exports = app => {
     router.get("/show", controller.user.show);
 
     router.get("/getUserByName", controller.user.getUserByName);
+
+    router.get("/getTest", controller.user.getTest);
 };

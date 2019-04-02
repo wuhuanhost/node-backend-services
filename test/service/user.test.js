@@ -60,3 +60,14 @@ describe("user transaction test()", () => {
         assert(flag);
     });
 });
+
+describe("redis test", () => {
+    it("redis set() test", async () => {
+        let ok = await app.redis.set("test", "123456");
+        assert(ok === "OK");
+    });
+    it("redis get() test", async () => {
+        let str = await app.redis.get("test");
+        assert(str === "123456");
+    });
+});

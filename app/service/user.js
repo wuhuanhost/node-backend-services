@@ -4,7 +4,16 @@ const Service = require("egg").Service;
 
 class User extends Service {
     async get(name) {
-        return await this.ctx.model.User.find({ where: { name: name } });
+        //测试消息队列
+        let obj = await this.ctx.model.User.find({ where: { name: name } });
+
+        let redisVal = await this.app.redis.get("test");
+        console.log({ redisVal });
+
+        //orm框架返回的对象是一个复合对象需要取出dataValues
+        Object.assign(obj.dataValues, { redisVal });
+        console.log(Object.prototype.toString.call(obj));
+        return obj;
     }
 
     async findByName(name) {

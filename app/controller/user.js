@@ -42,6 +42,7 @@ class UserController extends Controller {
     async show() {
         console.error(this.ctx.query.id);
         const ctx = this.ctx;
+
         ctx.body = await ctx.model.User.findById(parseInt(this.ctx.query.id));
     }
 
@@ -52,6 +53,12 @@ class UserController extends Controller {
         console.log(this.ctx.query.id);
         const ctx = this.ctx;
         ctx.body = await ctx.service.user.findByName(ctx.query.name);
+    }
+
+    async getTest() {
+        const ctx = this.ctx;
+        let user = await ctx.service.user.get(ctx.query.name);
+        ctx.body = user;
     }
 }
 
