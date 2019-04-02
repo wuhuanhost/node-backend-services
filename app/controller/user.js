@@ -44,6 +44,15 @@ class UserController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.model.User.findById(parseInt(this.ctx.query.id));
     }
+
+    /**
+     * 根据用户名称查找用户
+     */
+    async getUserByName() {
+        console.log(this.ctx.query.id);
+        const ctx = this.ctx;
+        ctx.body = await ctx.service.user.findByName(ctx.query.name);
+    }
 }
 
 module.exports = UserController;

@@ -36,6 +36,10 @@
 
 `npx sequelize db:migrate`
 
+> 升级测试数据库
+
+`NODE_ENV=test npx sequelize db:migrate`
+
 #### 4、如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
 
 `npx sequelize db:migrate:undo`

@@ -4,7 +4,7 @@
 import 'egg';
 import { EggAppConfig } from 'egg';
 import ExportConfigDefault = require('../../config/config.default');
-type ConfigDefault = typeof ExportConfigDefault;
+type ConfigDefault = ReturnType<typeof ExportConfigDefault>;
 declare module 'egg' {
   type NewEggAppConfig = ConfigDefault;
   interface EggAppConfig extends NewEggAppConfig { }

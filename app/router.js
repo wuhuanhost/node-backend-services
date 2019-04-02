@@ -1,7 +1,6 @@
 // app/router.js
 module.exports = app => {
-    
-	const { router, controller } = app;
+    const { router, controller } = app;
 
     router.get("/", controller.home.index);
     //api
@@ -11,4 +10,6 @@ module.exports = app => {
     router.get("/getUser", controller.user.getUser);
 
     router.get("/show", controller.user.show);
+
+    router.get("/getUserByName", controller.user.getUserByName);
 };
