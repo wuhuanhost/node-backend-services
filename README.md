@@ -59,3 +59,11 @@
 #### 2、同步数据到数据库
 
 `npx sequelize db:seed:all`
+
+### 编辑器配置
+
+[eslint 配置和智能提示](https://www.jianshu.com/p/2e3b83ce3d89)
+
+### 其它
+
+[常见问题](./doc/常见问题.md)

@@ -8,12 +8,26 @@ class User extends Service {
         let obj = await this.ctx.model.User.find({ where: { name: name } });
 
         let redisVal = await this.app.redis.get("test");
-        console.log({ redisVal });
 
-        //orm框架返回的对象是一个复合对象需要取出dataValues
-        Object.assign(obj.dataValues, { redisVal });
-        console.log(Object.prototype.toString.call(obj));
-        return obj;
+        let result = obj.toJSON();
+
+        //合并mysql和redis的数据
+        Object.assign(result, { redisVal });
+
+        //测试redis发布订阅模式
+        this.app.redis.publish("news", "hello world!!!");
+
+        this.app.redis.set(
+            "testobj",
+            JSON.stringify({
+                name: 123,
+                age: 18
+            })
+        );
+        let abc = await this.app.redis.get("testobj");
+        console.log(JSON.parse(abc).name);
+
+        return result;
     }
 
     async findByName(name) {
