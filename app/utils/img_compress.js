@@ -3,7 +3,7 @@ const imageminJpegtran = require("imagemin-jpegtran");
 const imageminPngquant = require("imagemin-pngquant");
 
 async function pngImgcompress() {
-	await imagemin(["C:\\Users\\wuhua\\Desktop\\demo\\*"], "C:\\Users\\wuhua\\Desktop\\build", {
+	await imagemin(["C:\\Users\\admin\\Desktop\\demo\\*"], "C:\\Users\\admin\\Desktop\\build", {
 		plugins: [
 			imageminJpegtran(),
 			imageminPngquant({
