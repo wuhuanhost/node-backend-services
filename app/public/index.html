@@ -29,6 +29,7 @@
                     success: function(data) {
                         if (!data.success) {
                             alert(data.msg);
+                            localStorage.setItem("token", null);
                         } else {
                             localStorage.setItem("token", data.token);
                         }

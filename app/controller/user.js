@@ -1,5 +1,6 @@
 // app/controller/user.js
 const Controller = require("egg").Controller;
+const auth = require("../utils/auth.js");
 
 function toInt(str) {
 	if (typeof str === "number") return str;
@@ -26,11 +27,52 @@ class UserController extends Controller {
 	}
 
 	async getUser() {
+		console.log("=================casbin 权限测试=====================");
+		const e = await auth();
+
+		//添加角色
+		const addeda = await e.addRoleForUser("alice", "data2_admin");
+		console.log("角色添加状态" + addeda);
+		//角色添加权限
+		await e.addPermissionForUser("data2_admin", "data1", "read");
+		await e.addPermissionForUser("data2_admin", "data1", "write");
+
+		//获取所有角色
+		const allRoles = e.getAllRoles();
+		console.log("所有角色>>>" + allRoles);
+
+		// 用户添加权限
+		await e.addPermissionForUser("alice", "read");
+
+		//判断用户是否具有权限
+		const res = await e.hasPermissionForUser("alice", "read");
+
+		console.log("alice 具有write权限>>>>>>>>>>>>" + res);
+
+		// 获取用户的角色
+		const res1 = await e.getRolesForUser("alice");
+		console.log("alice所在的角色" + res1);
+
+		//判断角色是否具有权限
+		var dasd = await e.hasNamedPolicy("p", "data2_admin", "data1", "write");
+		console.log("data2_admin 具有write权限>>>>>>>>>>>>" + dasd);
+
+		//添加权限
+		await e.addPolicy("data2_admin", "app", "/app/1", "GET");
+		// 添加角色分组（app为模块）
+		await e.addGroupingPolicy("alice", "data2_admin", "app");
+
+		var dasdasd = await e.hasNamedPolicy("p", "data2_admin", "app", "/app/1", "GET");
+		console.log("data2_admin 具有write权限>>>>>>>>>>>>" + dasdasd);
+
+		console.log("=================casbin 权限测试=====================");
+
 		console.error(this.ctx.request.header["access-token"]);
 		var token = this.ctx.request.header["access-token"];
 		//app.js启动时获取的天气数据
 		var _this = this;
 		this.ctx.app.jwt.verify(token, this.ctx.app.config.jwt.secret, function(err, result) {
+			console.log(result);
 			if (!err) {
 				_this.ctx.body = { success: true, msg: "token 正确", data: { msg: "hello world!!!" } };
 			} else {

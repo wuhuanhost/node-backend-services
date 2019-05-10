@@ -41,6 +41,8 @@
         "sequelize-cli": "^5.4.0"
     },
     "dependencies": {
+        "casbin": "^2.0.4",
+        "casbin-sequelize-adapter": "^1.0.2",
         "egg": "^2.20.1",
         "egg-jwt": "^3.0.0",
         "egg-redis": "^2.3.0",
