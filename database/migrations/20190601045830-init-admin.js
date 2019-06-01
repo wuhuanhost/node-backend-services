@@ -11,42 +11,49 @@ module.exports = {
     */
 
 		const { INTEGER, DATE, STRING } = Sequelize;
-		await queryInterface.createTable("admin", {
-			id: { type: INTEGER(11), primaryKey: true, autoIncrement: true },
-			account: {
-				type: STRING(20),
-				defaultValue: "",
-				allowNull: false,
-				unique: true, //添加唯一索引
-				comment: "系统账号"
+		await queryInterface.createTable(
+			"admin",
+			{
+				id: { type: INTEGER(11), primaryKey: true, autoIncrement: true },
+				account: {
+					type: STRING(20),
+					defaultValue: "",
+					allowNull: false,
+					unique: true, //添加唯一索引
+					comment: "系统账号"
+				},
+				password: {
+					type: STRING(200),
+					defaultValue: "",
+					allowNull: false,
+					comment: "系统密码"
+				},
+				nickname: STRING(20),
+				birthday: STRING(20),
+				email: STRING(50),
+				phone: STRING(20),
+				sex: INTEGER(),
+				avatar: STRING(255),
+				token: {
+					type: STRING(200),
+					allowNull: false
+				},
+				created_at: {
+					type: DATE,
+					defaultValue: new Date(),
+					allowNull: false
+				},
+				updated_at: {
+					type: DATE,
+					defaultValue: new Date(),
+					allowNull: false
+				}
 			},
-			password: {
-				type: STRING(200),
-				defaultValue: "",
-				allowNull: false,
-				comment: "系统密码"
-			},
-			nickname: STRING(20),
-			birthday: STRING(20),
-			email: STRING(50),
-			phone: STRING(20),
-			sex: INTEGER(),
-			avatar: STRING(255),
-			token: {
-				type: STRING(200),
-				allowNull: false
-			},
-			created_at: {
-				type: DATE,
-				defaultValue: new Date(),
-				allowNull: false
-			},
-			updated_at: {
-				type: DATE,
-				defaultValue: new Date(),
-				allowNull: false
-			}
-		});
+			// {
+			// 	engine: "InnoDB", // 数据库引擎 default: 'InnoDB'
+			// 	charset: "utf8mb4" //字符集
+			// }
+		);
 
 		// 添加索引
 		// await queryInterface.addIndex("admin", ["account"], {
