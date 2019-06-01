@@ -30,7 +30,7 @@
     },
     "homepage": "https://github.com/wuhuanhost/node-backend-services#readme",
     "devDependencies": {
-        "egg-bin": "^4.7.1",
+        "egg-bin": "^4.13.1",
         "egg-mock": "^3.22.1",
         "eslint": "^5.16.0",
         "eslint-config-standard": "^12.0.0",

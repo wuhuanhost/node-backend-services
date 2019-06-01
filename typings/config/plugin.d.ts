@@ -1,4 +1,4 @@
-// This file is created by egg-ts-helper@1.24.1
+// This file is created by egg-ts-helper@1.25.3
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
@@ -17,7 +17,6 @@ import 'egg-view';
 import 'egg-jwt';
 import 'egg-sequelize';
 import 'egg-view-nunjucks';
-import 'egg-redis';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {

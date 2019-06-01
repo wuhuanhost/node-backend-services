@@ -4,7 +4,7 @@ module.exports = {
 	up: async (queryInterface, Sequelize) => {
 		const { INTEGER, DATE, STRING } = Sequelize;
 		await queryInterface.createTable("user-transaction-tests", {
-			id: { type: INTEGER, primaryKey: true, autoIncrement: true },
+			id: { type: INTEGER(11), primaryKey: true, autoIncrement: true },
 			user_name: STRING(30),
 			created_at: DATE,
 			updated_at: DATE

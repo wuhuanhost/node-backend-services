@@ -12,7 +12,7 @@ module.exports = appInfo => {
 		host: "127.0.0.1",
 		port: 3306,
 		username: "root",
-		password: "",
+		password: "root",
 		database: "dreamer-db-default"
 	};
 	config.keys = "123456789"; //安全框架使用的key
