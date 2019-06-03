@@ -34,6 +34,11 @@ module.exports = {
 				phone: STRING(20),
 				sex: INTEGER(),
 				avatar: STRING(255),
+				status: {
+					type: INTEGER(1),
+					defaultValue: 1,
+					allowNull: false
+				},
 				token: {
 					type: STRING(200),
 					allowNull: false
@@ -48,7 +53,7 @@ module.exports = {
 					defaultValue: new Date(),
 					allowNull: false
 				}
-			},
+			}
 			// {
 			// 	engine: "InnoDB", // 数据库引擎 default: 'InnoDB'
 			// 	charset: "utf8mb4" //字符集

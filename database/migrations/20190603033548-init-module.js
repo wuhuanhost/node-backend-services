@@ -3,12 +3,32 @@
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
 		const { INTEGER, DATE, STRING } = Sequelize;
-		await queryInterface.createTable("role", {
+		await queryInterface.createTable("module", {
 			id: { type: INTEGER(11), primaryKey: true, autoIncrement: true },
-			name: STRING(20),
-			status: INTEGER(2),
+			name: {
+				type: STRING(20),
+				unique: true,
+				allowNull: false
+			},
+			url: {
+				type: STRING(255),
+				allowNull: false,
+				defaultValue: ""
+			},
 			remark: STRING(200),
+			type: {
+				type: STRING(20),
+				allowNull: false,
+				defaultValue: "menu"
+			},
+			status: {
+				type: INTEGER(1),
+				allowNull: false,
+				defaultValue: 1
+			},
+			parent_id: INTEGER(11),
 			order: INTEGER(11),
+			level: INTEGER(1),
 			created_at: {
 				type: DATE,
 				defaultValue: new Date(),
@@ -23,6 +43,6 @@ module.exports = {
 	},
 
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable("role");
+		await queryInterface.dropTable("module");
 	}
 };
