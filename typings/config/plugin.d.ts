@@ -17,6 +17,7 @@ import 'egg-view';
 import 'egg-jwt';
 import 'egg-sequelize';
 import 'egg-view-nunjucks';
+import 'egg-redis';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {

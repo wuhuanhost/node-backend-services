@@ -37,5 +37,10 @@ module.exports = appInfo => {
 			db: 0
 		}
 	};
+	// aes配置中的key和iv
+	config.aesConfig = {
+		iv: "25f9e794323b453885f5181f1b624d0b",
+		key: "25f9e794323b453885f5181f1b624d0b"
+	};
 	return config;
 };

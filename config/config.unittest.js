@@ -1,8 +1,8 @@
 exports.sequelize = {
-    dialect: "mysql",
-    host: "127.0.0.1",
-    port: 3306,
-    username: "root",
-    password: "",
-    database: "dreamer-db-unittest"
+	dialect: "mysql",
+	host: "127.0.0.1",
+	port: 3306,
+	username: "root",
+	password: "root",
+	database: "dreamer-db-unittest"
 };
