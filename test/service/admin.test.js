@@ -6,10 +6,24 @@ const { app } = require("egg-mock/bootstrap");
 // 	it("新增用户测试", async () => {
 // 		// 创建 ctx
 // 		const ctx = app.mockContext();
+// 		var admin = {
+// 			account: "dreamer12313",
+// 			password: this.app.MD5("123456789"),
+// 			nickname: this.app.aesDecodeCBC(this.app.aesEncodeCBC("123")),
+// 			birthday: "1990-11-10",
+// 			email: "abc@email.com",
+// 			phone: "15802925304",
+// 			sex: 1,
+// 			avatar: "/images/avatar.png",
+// 			status: 1,
+// 			token: this.app.aesEncodeCBC("123"),
+// 			created_at: new Date(),
+// 			updated_at: new Date()
+// 		};
 // 		// console.log(ctx.service);
 // 		// 通过 ctx 访问到 service.user
-// 		const admin = await ctx.service.sysAdmin.addAdmin({}); // console.log(admin);
-// 		assert(admin);
+// 		const result = await ctx.service.sysAdmin.addAdmin(admin); // console.log(admin);
+// 		assert(result);
 // 	});
 // });
 
@@ -19,8 +33,8 @@ describe("findAdmin()", () => {
 		const ctx = app.mockContext();
 		// console.log(ctx.service);
 		// 通过 ctx 访问到 service.user
-		const admin = await ctx.service.sysAdmin.login("admin", ctx.app.MD5("123456789")); // console.log(admin);
-		assert(admin);
-		assert(admin.account === "admin");
+		const result = await ctx.service.sysAdmin.login("admin", ctx.app.MD5("123456789")); // console.log(admin);
+		assert(result);
+		assert(result.account === "admin");
 	});
 });

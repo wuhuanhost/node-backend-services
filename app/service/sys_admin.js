@@ -22,21 +22,7 @@ class SysAdmin extends Service {
 	}
 	//后台新增用户
 	async addAdmin(admin) {
-		var admin1 = {
-			account: "dreamer12313",
-			password: this.app.MD5("123456789"),
-			nickname: this.app.aesDecodeCBC(this.app.aesEncodeCBC("123")),
-			birthday: "1990-11-10",
-			email: "abc@email.com",
-			phone: "15802925304",
-			sex: 1,
-			avatar: "/images/avatar.png",
-			status: 1,
-			token: this.app.aesEncodeCBC("123"),
-			created_at: new Date(),
-			updated_at: new Date()
-		};
-		return await this.ctx.model.Admin.create(admin1);
+		return await this.ctx.model.Admin.create(admin);
 	}
 	//修改用户
 	async updateAdmin(admin) {}
