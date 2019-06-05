@@ -11,7 +11,15 @@ class SysAdmin extends Service {
 	 * @param 账号 account
 	 * @param 密码 md5Pwd
 	 */
-	async login(account, md5Pwd) {}
+	async login(account, md5Pwd) {
+		var admin = await this.ctx.model.Admin.findOne({
+			where: {
+				account: account,
+				password: md5Pwd
+			}
+		});
+		return admin.toJSON();
+	}
 	//后台新增用户
 	async addAdmin(admin) {
 		var admin1 = {

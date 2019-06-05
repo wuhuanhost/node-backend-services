@@ -13,7 +13,15 @@ module.exports = appInfo => {
 		port: 3306,
 		username: "root",
 		password: "root",
-		database: "dreamer-db-default"
+		database: "dreamer-db-default",
+		pool: {
+			//连接池配置
+			max: 5, //最大连接数
+			min: 0, //最小连接数
+			acquire: 30000, //请求超时时间
+			idle: 10000 //断开连接后，连接实例在连接池保持的时间
+		},
+		logging: true //输出日志
 	};
 	config.keys = "123456789"; //安全框架使用的key
 	//模板引擎设置
