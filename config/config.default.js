@@ -20,8 +20,7 @@ module.exports = appInfo => {
 			min: 0, //最小连接数
 			acquire: 30000, //请求超时时间
 			idle: 10000 //断开连接后，连接实例在连接池保持的时间
-		},
-		logging: true //输出日志
+		}
 	};
 	config.keys = "123456789"; //安全框架使用的key
 	//模板引擎设置
