@@ -67,3 +67,13 @@
 ### 其它
 
 [常见问题](./doc/常见问题.md)
+
+### Docker 镜像部署
+
+** 将当前项目打包 Docker 镜像**
+
+`docker build -t node/koa-server .`
+
+**启动镜像容器**
+
+`sudo docker run -d --name koa-server -p 7001:7001 node/koa-server`
