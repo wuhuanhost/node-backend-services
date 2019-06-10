@@ -8,7 +8,8 @@
         "dev": "egg-bin dev",
         "cov": "egg-bin cov",
         "bank-start": "egg-scripts start --stdout=logs/master-stdout.log --stderr=logs/master-stderr.log --daemon --title=egg-server-bds --workers=2",
-        "start": "egg-scripts start --daemon --title=egg-server-bds --workers=2",
+        "//这是注释": "使用docker官方建议直接前台运行",
+        "start": "egg-scripts start --title=egg-server-bds --workers=2",
         "stop": "egg-scripts stop --title=egg-server-bds"
     },
     "egg": {
