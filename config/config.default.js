@@ -1,5 +1,5 @@
 // config/config.default.js
-
+const path = require("path");
 module.exports = appInfo => {
 	const config = {};
 	// jwt secret
@@ -51,5 +51,8 @@ module.exports = appInfo => {
 		iv: "25f9e794323b453885f5181f1b624d0b",
 		key: "25f9e794323b453885f5181f1b624d0b"
 	};
+
+	// 生产日志的默认位置/root/logs下
+	config.logger = { dir: path.join(appInfo.root, "logs", appInfo.name) };
 	return config;
 };

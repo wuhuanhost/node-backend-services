@@ -1,10 +1,16 @@
 # 设置基础镜像,如果本地没有该镜像，会从Docker.io服务器pull镜像
 FROM node:8.6.0-alpine
-# 设置时区
+# 设置时区并且安装bash,alpine版本的linux默认没有安装bash而而是使用的sh
 RUN apk --update add tzdata \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& echo "Asia/Shanghai" > /etc/timezone \
-	&& apk del tzdata
+	&& apk del tzdata \
+	&& apk add --no-cache bash \
+	bash-doc \
+	bash-completion \
+	&& rm -rf /var/cache/apk/* \
+	&& /bin/bash
+
 
 # 创建app目录
 RUN mkdir -p /usr/src/node-app/koa-server
