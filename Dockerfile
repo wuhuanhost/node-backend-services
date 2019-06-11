@@ -1,6 +1,6 @@
 # 设置基础镜像,如果本地没有该镜像，会从Docker.io服务器pull镜像
 FROM node:8.6.0-alpine
-# 设置时区并且安装bash,alpine版本的linux默认没有安装bash而而是使用的sh
+# 设置时区并且安装bash,alpine版本的linux默认没有安装bash而是使用的sh
 RUN apk --update add tzdata \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 	&& echo "Asia/Shanghai" > /etc/timezone \
