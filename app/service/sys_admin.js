@@ -22,7 +22,10 @@ class SysAdmin extends Service {
 	}
 	//后台新增用户
 	async addAdmin(admin) {
-		return await this.ctx.model.Admin.create(admin);
+		let password = admin.password; //获取明文密码
+		let encyptPwd = this.ctx.app.MD5(password); //加密密码
+		let newAdmin = Object.assign({}, admin, { password: encyptPwd }); //合并对象
+		return await this.ctx.model.Admin.create(newAdmin);
 	}
 	//修改用户
 	async updateAdmin(admin) {}
