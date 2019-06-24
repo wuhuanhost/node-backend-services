@@ -25,7 +25,8 @@ class SysAdmin extends Service {
 		let password = admin.password; //获取明文密码
 		let encyptPwd = this.ctx.app.MD5(password); //加密密码
 		let newAdmin = Object.assign({}, admin, { password: encyptPwd }); //合并对象
-		return await this.ctx.model.Admin.create(newAdmin);
+		let result = await this.ctx.model.Admin.create(newAdmin);
+		return result;
 	}
 	//修改用户
 	async updateAdmin(admin) {}
@@ -35,14 +36,16 @@ class SysAdmin extends Service {
 	 * @param  显示页数         pageNum
 	 * @param  每页显示的条数    pageSize
 	 */
-	async queryAdminsByPage(pageNum, pageSize) {
+	async queryAdminsByPage(currentPage, pageSize) {
 		let admin = await this.ctx.model.Admin.findAndCountAll({
 			where: {
 				status: 1
 			},
-			limit: 0, //起始
-			offset: pageSize //显示的条数
+			limit: 0, //显示的条数
+			offset: (currentPage - 1) * pageSize, //起始下标
+			distinct: true //关联查询去掉重复数据
 		});
+		return admin;
 	}
 	// 根据用户查询用户信息
 	async queryAdminById(adminId) {}
