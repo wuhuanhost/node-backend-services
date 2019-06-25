@@ -43,5 +43,7 @@ module.exports = app => {
 		}
 	);
 
+	// app.model.Module.belongsToMany(app.model.Role, { through: RolePermission });
+	// app.model.Role.belongsToMany(app.model.Module, { through: RolePermission });
 	return RolePermission;
 };

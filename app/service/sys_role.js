@@ -5,6 +5,7 @@ const Service = require("egg").Service;
  *系统角色管理模块
  * @class SysManage
  */
+
 class SysRole extends Service {
 	//新增角色
 	async addRole(role) {}
@@ -37,7 +38,10 @@ class SysRole extends Service {
 			},
 			include: [
 				{
-					model: this.ctx.model.Module
+					model: this.ctx.model.Role
+				},
+				{
+					model: this.ctx.model.RolePermission
 				}
 			]
 		});
