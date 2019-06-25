@@ -29,7 +29,21 @@ class SysRole extends Service {
 	 * 根据角色获取用户的权限列表
 	 * @param 角色id roleId
 	 */
-	async getPermissionsByRole(roleId) {}
+	async getPermissionsByRole(roleId) {
+		roleId = 1;
+		let permission = await this.ctx.model.RolePermission.findAll({
+			where: {
+				role_id: roleId
+			},
+			include: [
+				{
+					model: this.ctx.model.Module
+				}
+			]
+		});
+		console.log(permission);
+		return permission;
+	}
 	/**
 	 * 判断角色是否具有权限
 	 * @param 角色id roleId
