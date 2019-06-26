@@ -9,6 +9,11 @@ describe("findRolePermission()", () => {
 		// console.log(ctx.service);
 		// 通过 ctx 访问到 service.user
 		const result = await ctx.service.sysRole.getPermissionsByRole(1); // console.log(admin);
+		console.log(
+			result.toJSON({
+				omitNull: true
+			})
+		);
 		assert(result);
 	});
 });

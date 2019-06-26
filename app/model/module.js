@@ -44,8 +44,9 @@ module.exports = app => {
 	);
 
 	// Module.belongsToMany(app.model.Role, { through: app.model.RolePermission });
-	Module.prototype.associate = function() {
-		app.model.Module.belongsToMany(app.model.Role, { through: app.model.RolePermission });
+	Module.associate = function() {
+		// app.model.Module.hasMany(app.model.RolePermission, { foreignKey: "module_id" });
+		app.model.Module.belongsToMany(app.model.Role, { through: app.model.RolePermission, foreignKey: "module_id" });
 	};
 
 	return Module;

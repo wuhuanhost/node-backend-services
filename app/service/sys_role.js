@@ -32,21 +32,21 @@ class SysRole extends Service {
 	 */
 	async getPermissionsByRole(roleId) {
 		roleId = 1;
-		let permission = await this.ctx.model.RolePermission.findAll({
+		let permissionList = await this.ctx.model.Role.find({
 			where: {
-				role_id: roleId
+				id: roleId
 			},
+			// plain: true,
+			// raw: true,
 			include: [
 				{
-					model: this.ctx.model.Role
-				},
-				{
-					model: this.ctx.model.RolePermission
+					model: this.ctx.model.Module
 				}
-			]
+			],
+			attributes: ["id", "name", "remark"] //需要返回的字段
 		});
-		console.log(permission);
-		return permission;
+
+		return permissionList;
 	}
 	/**
 	 * 判断角色是否具有权限
