@@ -38,3 +38,16 @@ describe("findAdmin()", () => {
 		assert(result.account === "admin");
 	});
 });
+
+describe("findAdmin()", () => {
+	it("根据账号获取权限列表", async () => {
+		// 创建 ctx
+		const ctx = app.mockContext();
+		// console.log(ctx.service);
+		// 通过 ctx 访问到 service.user
+		const result = await ctx.service.sysAdmin.getPermissionByAdmin("admin"); // console.log(admin);
+		console.warn(JSON.stringify(result));
+		assert(result);
+		assert(result.roles[0].modules.length === 2);
+	});
+});

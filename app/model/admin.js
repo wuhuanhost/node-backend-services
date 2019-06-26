@@ -43,6 +43,9 @@ module.exports = app => {
 			freezeTableName: true //加上此参数后不会去数据库中找defined定义的【表名+s】的表了
 		}
 	);
-
+	Admin.associate = function() {
+		// app.model.Role.hasMany(app.model.RolePermission, { foreignKey: "role_id" });
+		app.model.Admin.belongsToMany(app.model.Role, { through: app.model.AdminRole, foreignKey: "admin_id" });
+	};
 	return Admin;
 };

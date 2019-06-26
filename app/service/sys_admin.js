@@ -57,6 +57,29 @@ class SysAdmin extends Service {
 	 * @param 角色id roleId
 	 */
 	async adminAssignRole(adminId, roleId) {}
+
+	async getPermissionByAdmin(accountId) {
+		let permissionList = await this.ctx.model.Admin.find({
+			where: {
+				account: accountId
+			},
+			// plain: true,
+			// raw: true,
+			include: [
+				{
+					model: this.ctx.model.Role,
+					include: [
+						{
+							model: this.ctx.model.Module
+						}
+					]
+				}
+			],
+			attributes: ["id", "account"] //需要返回的字段
+		});
+
+		return permissionList;
+	}
 }
 
 module.exports = SysAdmin;
