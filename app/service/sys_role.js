@@ -31,7 +31,6 @@ class SysRole extends Service {
 	 * @param 角色id roleId
 	 */
 	async getPermissionsByRole(roleId) {
-		roleId = 1;
 		let permissionList = await this.ctx.model.Role.find({
 			where: {
 				id: roleId
