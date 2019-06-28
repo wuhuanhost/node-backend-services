@@ -74,10 +74,9 @@ class SysAdmin extends Service {
 						}
 					]
 				}
-			],
-			attributes: ["id", "account"] //需要返回的字段
+			]
+			// attributes: ["id", "account"] //需要返回的字段
 		});
-
 		return permissionList;
 	}
 }

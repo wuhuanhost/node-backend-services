@@ -14,4 +14,7 @@ module.exports = app => {
 	router.get("/getUserByName", controller.user.getUserByName);
 
 	router.get("/getTest", controller.user.getTest);
+
+	//测试获取权限
+	router.get("/getTest1", controller.user.getTest1);
 };

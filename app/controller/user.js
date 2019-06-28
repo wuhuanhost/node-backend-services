@@ -102,6 +102,15 @@ class UserController extends Controller {
 		let user = await ctx.service.user.get(ctx.query.name);
 		ctx.body = user;
 	}
+
+	async getTest1() {
+		const ctx = this.ctx;
+		ctx.app.logger.info("访问时间 %d ms", Date.now());
+		ctx.app.logger.warn("warning!");
+
+		let user = await ctx.service.sysAdmin.getPermissionByAdmin(ctx.query.account);
+		ctx.body = JSON.stringify(user);
+	}
 }
 
 module.exports = UserController;
