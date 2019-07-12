@@ -1,8 +1,8 @@
 /*
- * @Description: response格式化工具，已经使用BaseController中相应方法取代
+ * @Description: response格式化工具，已经使用BaseController中相应方法取代，使用其他框架可以使用本方法来格式化responses数据
  * @Author: your name
  * @Date: 2019-06-24 09:19:15
- * @LastEditTime: 2019-06-24 09:49:36
+ * @LastEditTime: 2019-07-12 15:25:16
  * @LastEditors: Please set LastEditors
  */
 class ResponseFormat {
