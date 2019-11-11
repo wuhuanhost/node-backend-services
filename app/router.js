@@ -24,8 +24,10 @@ module.exports = app => {
 	router.post("/sys/authorizations", controller.admin.login);
 	// 创建系统管理员
 	router.post("/sys/admin", controller.admin.add);
-	// 获取系统所有的管理员(分页)account=null表示查询全部，否者根据用户名查询（模糊匹配）
+	// 获取系统所有的管理员(分页)account=null表示查询全部，否者根据用户账号（唯一）来查询（模糊匹配）
 	router.get("/sys/admins/:account", controller.admin.queryAdmin);
+	//获取用户账号下的所有模块(左侧菜单)
+	router.get("/sys/modules/:account", controller.module.list);
 
 	/**========================================系统管理接口===========================================*/
 
