@@ -5,11 +5,15 @@ var Controller = require("../core/BaseController");
 
 class AdminController extends Controller {
 	async login() {
-		const result = await this.ctx.service.sysAdmin.login("admin", this.ctx.app.MD5("123456789"));
+		const result = await this.ctx.service.sysAdmin.login(
+			"admin",
+			this.ctx.app.MD5("123456789")
+		);
 		this.ctx.body = result;
 	}
 
 	async add() {
+		var dasd = "";
 		this.ctx.body = {};
 	}
 

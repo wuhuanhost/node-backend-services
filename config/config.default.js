@@ -9,7 +9,7 @@ module.exports = appInfo => {
 	//orm框架配置
 	config.sequelize = {
 		dialect: "mysql",
-		host: "127.0.0.1",
+		host: "192.168.1.123",
 		// host: "192.168.99.100", //docker
 		port: 3306,
 		username: "root",
