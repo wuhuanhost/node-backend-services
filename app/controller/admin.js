@@ -22,7 +22,7 @@ class AdminController extends Controller {
 		let pageNum = this.ctx.query.page;
 		this.ctx.body = {
 			account,
-			pageNum
+			pageNum,
 		};
 	}
 }

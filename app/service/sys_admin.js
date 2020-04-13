@@ -15,8 +15,8 @@ class SysAdmin extends Service {
 		let admin = await this.ctx.model.Admin.findOne({
 			where: {
 				account: account,
-				password: md5Pwd
-			}
+				password: md5Pwd,
+			},
 		});
 		return admin.toJSON();
 	}
@@ -39,11 +39,11 @@ class SysAdmin extends Service {
 	async queryAdminsByPage(currentPage, pageSize) {
 		let admin = await this.ctx.model.Admin.findAndCountAll({
 			where: {
-				status: 1
+				status: 1,
 			},
 			limit: 0, //显示的条数
 			offset: (currentPage - 1) * pageSize, //起始下标
-			distinct: true //关联查询去掉重复数据
+			distinct: true, //关联查询去掉重复数据
 		});
 		return admin;
 	}
@@ -61,7 +61,7 @@ class SysAdmin extends Service {
 	async getPermissionByAdmin(accountId) {
 		let permissionList = await this.ctx.model.Admin.find({
 			where: {
-				account: accountId
+				account: accountId,
 			},
 			// plain: true,
 			// raw: true,
@@ -70,14 +70,24 @@ class SysAdmin extends Service {
 					model: this.ctx.model.Role,
 					include: [
 						{
-							model: this.ctx.model.Module
-						}
-					]
-				}
-			]
+							model: this.ctx.model.Module,
+						},
+					],
+				},
+			],
 			// attributes: ["id", "account"] //需要返回的字段
 		});
 		return permissionList;
+	}
+
+	/**
+	 *dsf
+	 */
+	async getImg1() {
+		return "";
+	}
+	async getImg() {
+		return "";
 	}
 }
 

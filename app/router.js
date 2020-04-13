@@ -22,7 +22,9 @@ module.exports = (app) => {
 	/**========================================系统管理接口(使用sys作为前缀)============================ */
 
 	// 登录接口
-	router.post("/sys/authorizations", controller.admin.login);
+	router.post("/sys/login", controller.admin.login);
+	// 授权接口
+	// router.post("/sys/authorizations", controller.admin.login);
 	// 创建系统管理员
 	router.post("/sys/admin", controller.admin.add);
 	// 获取系统所有的管理员(分页)account=null表示查询全部，否者根据用户账号（唯一）来查询（模糊匹配）
